@@ -1,0 +1,7 @@
+usr/bin/ipsilon-db2conf
+usr/bin/ipsilon-server-install
+usr/bin/ipsilon-upgrade-database
+usr/share/ipsilon/templates/install/*.conf
+usr/share/ipsilon/ui/saml2sp
+usr/lib/python2.7/dist-packages/ipsilon/helpers/common.py*
+usr/lib/python2.7/dist-packages/ipsilon/helpers/__init__.py*

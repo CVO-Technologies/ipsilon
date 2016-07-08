@@ -22,11 +22,11 @@ import sys
 import base64
 
 
-HTTPDCONFD = '/etc/httpd/conf.d'
+HTTPDCONFD = '/etc/apache2/conf-enabled'
 SAML2_TEMPLATE = '/usr/share/ipsilon/templates/install/saml2/sp.conf'
 OPENIDC_TEMPLATE = '/usr/share/ipsilon/templates/install/openidc/rp.conf'
-CONFFILE = '/etc/httpd/conf.d/ipsilon-%s.conf'
-HTTPDIR = '/etc/httpd/%s'
+CONFFILE = '/etc/apache2/conf-enabled/ipsilon-%s.conf'
+HTTPDIR = '/etc/apache2/%s'
 PROTECTED = '/protected'
 
 #Installation arguments

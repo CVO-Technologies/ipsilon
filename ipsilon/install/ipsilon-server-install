@@ -24,8 +24,8 @@ import time
 TEMPLATES = '/usr/share/ipsilon/templates/install'
 CONFDIR = '/etc/ipsilon'
 DATADIR = '/var/lib/ipsilon'
-HTTPDCONFD = '/etc/httpd/conf.d'
-BINDIR = '/usr/libexec'
+HTTPDCONFD = '/etc/apache2/conf-enabled'
+BINDIR = '/usr/share/ipsilon/wsgi'
 STATICDIR = '/usr/share/ipsilon'
 CACHEDIR = '/var/cache/ipsilon'
 WSGI_SOCKET_PREFIX = None

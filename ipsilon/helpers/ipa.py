@@ -10,7 +10,7 @@ from ipsilon.helpers.common import EnvHelpersInstaller
 
 
 IPA_CONFIG_FILE = '/etc/ipa/default.conf'
-HTTPD_IPA_KEYTAB = '/etc/httpd/conf/ipa.keytab'
+HTTPD_IPA_KEYTAB = '/etc/apache2/ipa.keytab'
 IPA_COMMAND = '/usr/bin/ipa'
 IPA_GETKEYTAB = '/usr/sbin/ipa-getkeytab'
 HTTPD_USER = 'apache'

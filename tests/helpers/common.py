@@ -167,7 +167,7 @@ basicConstraints = CA:false""" % {'certdir': os.path.join(self.testdir,
         os.mkdir(os.path.join(httpdir, 'conf.d'))
         os.mkdir(os.path.join(httpdir, 'html'))
         os.mkdir(os.path.join(httpdir, 'logs'))
-        os.symlink('/etc/httpd/modules', os.path.join(httpdir, 'modules'))
+        os.symlink('/usr/lib/apache2/modules', os.path.join(httpdir, 'modules'))
 
         with open(os.path.join(self.rootdir, 'tests/httpd.conf')) as f:
             t = Template(f.read())
@@ -231,7 +231,7 @@ basicConstraints = CA:false""" % {'certdir': os.path.join(self.testdir,
         return http_conf_file
 
     def setup_pgdb(self, datadir, env):
-        cmd = ['/usr/bin/pg_ctl', 'initdb', '-D', datadir, '-o', '-E UNICODE']
+        cmd = ['/usr/lib/postgresql/9.5/bin/pg_ctl', 'initdb', '-D', datadir, '-o', '-E UNICODE']
         subprocess.check_call(cmd, env=env)
         auth = 'host all all 127.0.0.1/24 trust\n'
         filename = os.path.join(datadir, 'pg_hba.conf')
@@ -243,13 +243,13 @@ basicConstraints = CA:false""" % {'certdir': os.path.join(self.testdir,
         env['MALLOC_PERTURB_'] = str(random.randint(0, 32767) % 255 + 1)
         env['REQUESTS_CA_BUNDLE'] = os.path.join(self.testdir, 'certs',
                                                  'root.cert.pem')
-        p = subprocess.Popen(['/usr/sbin/httpd', '-DFOREGROUND', '-f', conf],
+        p = subprocess.Popen(['/usr/sbin/apache2', '-DFOREGROUND', '-f', conf],
                              env=env, preexec_fn=os.setsid)
         self.processes.append(p)
         return p
 
     def start_pgdb_server(self, datadir, rundir, log, addr, port, env):
-        p = subprocess.Popen(['/usr/bin/pg_ctl', 'start', '-D', datadir, '-o',
+        p = subprocess.Popen(['/usr/lib/postgresql/9.5/bin/pg_ctl', 'start', '-D', datadir, '-o',
                               '-c unix_socket_directories=%s -c port=%s -c \
                                listen_addresses=%s' % (rundir, port, addr),
                               '-l', log, '-w'],

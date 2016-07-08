@@ -102,8 +102,6 @@ class InfoProvider(InfoProviderBase):
 
 
 CONF_TEMPLATE = """
-LoadModule lookup_identity_module modules/mod_lookup_identity.so
-
 <Location /${instance}>
   LookupUserAttr sn REMOTE_USER_LASTNAME
   LookupUserAttr st REMOTE_USER_STATE

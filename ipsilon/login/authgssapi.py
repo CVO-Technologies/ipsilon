@@ -111,7 +111,7 @@ class Installer(LoginManagerInstaller):
         group.add_argument('--gssapi', choices=['yes', 'no'], default='no',
                            help='Configure GSSAPI authentication')
         group.add_argument('--gssapi-httpd-keytab',
-                           default='/etc/httpd/conf/http.keytab',
+                           default='/etc/apache2/http.keytab',
                            help='Kerberos keytab location for HTTPD')
 
     def configure(self, opts, changes):

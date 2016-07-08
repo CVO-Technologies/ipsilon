@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# You must remove unused comment lines for the released package.
+export DH_VERBOSE = 1
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+PY2REQUESTED := $(shell pyversions -r)
+PY2DEFAULT := $(shell pyversions -d)
+PY2 := $(filter-out $(PY2DEFAULT),$(PY2REQUESTED)) python
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_build:
+	dh_auto_build
+	set -e; for python in $(PY2); do \
+		$$python setup.py build; \
+	done
+
+override_dh_auto_install:
+	find build -name \*.pyc -print0 | xargs -0r rm -f
+	find build -name __pycache__ -print0 | xargs -0r rm -rf
+	find build -name \*.egg-info -print0 | xargs -0r rm -rf1
+	dh_auto_install
+	set -e; for python in $(PY2); do \
+		$$python setup.py install --force --root=$(CURDIR)/debian/tmp \
+			--no-compile -O0 --install-layout=deb; \
+	done

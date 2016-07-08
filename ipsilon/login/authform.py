@@ -82,9 +82,6 @@ Form based login Manager. Relies on mod_intercept_form_submit plugin for
 
 
 CONF_TEMPLATE = """
-LoadModule intercept_form_submit_module modules/mod_intercept_form_submit.so
-LoadModule authnz_pam_module modules/mod_authnz_pam.so
-
 <Location /${instance}/login/form>
   InterceptFormPAMService ${service}
   InterceptFormLogin login_name

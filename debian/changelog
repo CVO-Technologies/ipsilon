@@ -1,0 +1,6 @@
+ipsilon (1.2.0-cvo1) xenial; urgency=low
+
+  * Initial Debian package
+
+ -- Marlin Cremers <m.cremers@cvo-technologies.com>  Wed, 22 Jun 2016 22:15:00 +0200
+
