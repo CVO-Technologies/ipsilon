@@ -1,0 +1,2 @@
+version=3
+opts=pgpsigurlmangle=s/$/.asc/,dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$// https://fedorahosted.org/ipsilon/wiki/Releases https://fedorahosted.org/released/ipsilon/ipsilon-(.+).tar.gz

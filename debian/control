@@ -1,0 +1,230 @@
+Source: ipsilon
+Section: net
+Priority: extra
+Maintainer: Marlin Cremers <m.cremers@cvo-technologies.com>
+Homepage: https://fedorahosted.org/ipsilon/
+Vcs-Browser: https://pagure.io/ipsilon
+Vcs-Git: https://pagure.io/ipsilon.git
+Standards-Version: 3.9.8
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ python-all,
+ python-setuptools,
+ node-less,
+ pylint,
+ pep8,
+ apache2,
+ postgresql,
+ openssl,
+ slapd,
+ python-openid,
+ python-cherrypy3,
+ python-m2crypto,
+ python-lasso,
+ python-sqlalchemy,
+ python-ldap,
+ python-lxml,
+ python-pampy,
+ python-fedora,
+ python-ipalib,
+ python-jinja2,
+ python-psycopg2,
+ sssd,
+ libsss-simpleifp0,
+ libapache2-mod-wsgi,
+ libapache2-mod-auth-mellon,
+ libapache2-mod-auth-gssapi,
+ python-requests-kerberos,
+ pkg-config,
+ krb5-kdc,
+ krb5-admin-server,
+ libsocket-wrapper,
+ libnss-wrapper,
+ sqlite3
+X-Python-Version: >= 2.7
+
+Package: ipsilon
+Architecture: all
+Description: An Identity Provider Server
+ .
+ Ipsilon is a multi-protocol Identity Provider service. Its function is to
+ bridge authentication providers and applications to achieve Single Sign On
+ and Federation.
+Depends:
+ python-requests,
+ ipsilon-base,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-base
+Architecture: all
+Description: Ipsilon base IDP server
+ .
+ The Ipsilon IdP server without installer
+Depends:
+ adduser,
+ apache2,
+ ipsilon-filesystem,
+ libapache2-mod-wsgi,
+ python-cherrypy3,
+ python-jinja2,
+ python-lxml,
+ python-sqlalchemy,
+ libjs-jquery,
+ libjs-bootstrap,
+ fonts-font-awesome,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-filesystem
+Architecture: all
+Description: Package providing files required by Ipsilon
+ .
+ Package providing basic directory structure required for all Ipsilon parts
+Depends:
+ ${misc:Depends}
+
+Package: ipsilon-client
+Architecture: all
+Description: Tools for configuring Ipsilon clients
+ .
+ Client install tools
+Depends:
+ ipsilon-filesystem,
+ ipsilon-saml2-base,
+ libapache2-mod-auth-mellon,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-tools-ipa
+Architecture: all
+Description: IPA helpers
+ .
+ Convenience client install tools for IPA support in the Ipsilon identity Provider
+Depends:
+ ipsilon-authgssapi,
+ ipsilon-authform,
+ freeipa-client,
+ freeipa-admintools,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-saml2-base
+Architecture: all
+Description: SAML2 base
+ .
+ Provides core SAML2 utilities
+Depends:
+ python-lasso,
+ python-lxml,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-saml2
+Architecture: all
+Description: SAML2 provider plugin
+ .
+ Provides a SAML2 provider plugin for the Ipsilon identity Provider
+Provides:
+ ipsilon-provider
+Depends:
+ ipsilon,
+ ipsilon-saml2-base,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-openid
+Architecture: all
+Description: Openid provider plugin
+ .
+ Provides an OpenId provider plugin for the Ipsilon identity Provider
+Provides:
+ ipsilon-provider
+Depends:
+ ipsilon,
+ python-openid,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-persona
+Architecture: all
+Description: Persona provider plugin
+ .
+ Provides a Persona provider plugin for the Ipsilon identity Provider
+Provides:
+ ipsilon-provider
+Depends:
+ ipsilon,
+ python-m2crypto,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-authfas
+Architecture: all
+Description: Fedora Authentication System login plugin
+ .
+ Provides a login plugin to authenticate against the Fedora Authentication System
+Depends:
+ ipsilon,
+ python-fedora,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-authform
+Architecture: all
+Description: mod_intercept_form_submit login plugin
+ .
+ Provides a login plugin to authenticate with mod_intercept_form_submit
+Depends:
+ ipsilon,
+ libapache2-mod-intercept-form-submit,
+ libapache2-mod-authnz-pam,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-authpam
+Architecture: all
+Description: PAM based login plugin
+ .
+ Provides a login plugin to authenticate against the local PAM stack
+Depends:
+ ipsilon,
+ python-pampy,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-authgssapi
+Architecture: all
+Description: mod_auth_gssapi based login plugin
+ .
+ Provides a login plugin to allow authentication via the mod_auth_gssapi Apache module.
+Depends:
+ ipsilon,
+ libapache2-mod-auth-gssapi,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-authldap
+Architecture: all
+Description: LDAP info and login plugin
+ .
+ Provides a login plugin to allow authentication and info retrieval via LDAP.
+Depends:
+ ipsilon,
+ python-ldap,
+ ${misc:Depends},
+ ${python:Depends}
+
+Package: ipsilon-infosssd
+Architecture: all
+Description: SSSD & mod_lookup_identity-based identity plugin
+ .
+ Provides an info plugin to allow retrieval via mod_lookup_identity and SSSD.
+Depends:
+ ipsilon,
+ libapache2-mod-lookup-identity,
+ libsss-simpleifp0,
+ sssd,
+ ${misc:Depends},
+ ${python:Depends}

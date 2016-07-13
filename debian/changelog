@@ -1,0 +1,5 @@
+ipsilon (1.2.0-debian1) experimental; urgency=medium
+
+  * Initial Debian package
+
+ -- Marlin Cremers <m.cremers@cvo-technologies.com>  Wed, 13 Jul 2016 18:04:00 +0200

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+  configure)
+    if [ -e /usr/share/apache2/apache2-maintscript-helper ]; then
+        . /usr/share/apache2/apache2-maintscript-helper
+	if [ ! -e /etc/apache2/mods-enabled/ssl.load ]; then
+            apache2_invoke enmod ssl || exit $?
+        fi
+    fi
+  ;;
+esac
+
+#DEBHELPER#
+
+exit 0;

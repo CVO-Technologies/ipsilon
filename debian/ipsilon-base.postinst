@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+  configure)
+    if ! getent passwd ipsilon > /dev/null; then
+        adduser --quiet \
+                --system \
+                --group \
+                --no-create-home \
+                --disabled-password \
+                --home /var/lib/ipsilon \
+                ipsilon
+    fi
+
+    install -d -m 0751 /etc/ipsilon
+    install -d -m 0751 /var/lib/ipsilon
+    install -d -m 0750 -o ipsilon -g www-data /var/cache/ipsilon
+  ;;
+esac
+
+#DEBHELPER#
+
+exit 0;

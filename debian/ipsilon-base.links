@@ -1,0 +1,4 @@
+/usr/share/javascript/bootstrap/js/bootstrap.min.js usr/share/ipsilon/ui/js/bootstrap.min.js
+/usr/share/javascript/jquery/jquery.min.js usr/share/ipsilon/ui/js/jquery.min.js
+/usr/share/fonts/truetype/font-awesome/fontawesome-webfont.ttf usr/share/ipsilon/ui/fonts/fontawesome/fontawesome-webfont.ttf
+/usr/share/ipsilon/templates/install/pam/ipsilon.pamd etc/pam.d/ipsilon

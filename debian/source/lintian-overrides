@@ -1,0 +1,5 @@
+ipsilon source: source-contains-unsafe-symlink ui/fonts
+ipsilon source: source-contains-prebuilt-javascript-object ui/js/patternfly.min.js
+ipsilon-base binary: font-in-non-font-package usr/share/ipsilon/ui/fonts-local/PatternFlyIcons-webfont.ttf
+ipsilon-persona binary: privacy-breach-generic usr/share/ipsilon/templates/persona/provisioning.html
+ipsilon-persona binary: privacy-breach-generic usr/share/ipsilon/templates/persona/signin_result.html

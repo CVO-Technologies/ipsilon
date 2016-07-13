@@ -1,0 +1,11 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-name: ipsilon
+Source: https://pagure.io/ipsilon/tree/master
+
+Files: *
+Copyright: 2014 Ipsilon project Contributors
+License: GPL-3+
+
+License: GPL-3+
+ On Debian machines the full text of the GNU General Public License
+ version 3 can be found in the file /usr/share/common-licenses/GPL-3.

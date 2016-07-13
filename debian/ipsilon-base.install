@@ -1,0 +1,24 @@
+usr/lib/python2.7/dist-packages/ipsilon/admin
+usr/lib/python2.7/dist-packages/ipsilon/rest
+usr/lib/python2.7/dist-packages/ipsilon/tools/dbupgrade.py*
+usr/lib/python2.7/dist-packages/ipsilon/login/__init__*
+usr/lib/python2.7/dist-packages/ipsilon/login/common*
+usr/lib/python2.7/dist-packages/ipsilon/login/authtest*
+usr/lib/python2.7/dist-packages/ipsilon/info/__init__*
+usr/lib/python2.7/dist-packages/ipsilon/info/common*
+usr/lib/python2.7/dist-packages/ipsilon/info/infonss*
+usr/lib/python2.7/dist-packages/ipsilon/providers/__init__*
+usr/lib/python2.7/dist-packages/ipsilon/providers/common*
+usr/lib/python2.7/dist-packages/ipsilon/root.py
+usr/lib/python2.7/dist-packages/ipsilon/util
+usr/share/man/man*/ipsilon*
+usr/share/ipsilon/templates/*.html
+usr/share/ipsilon/templates/admin
+usr/share/ipsilon/templates/login/index.html
+usr/share/ipsilon/templates/login/form.html
+usr/share/ipsilon/ui/css
+usr/share/ipsilon/ui/img
+usr/share/ipsilon/ui/js
+usr/share/ipsilon/ui/fonts-local
+usr/bin/ipsilon usr/share/ipsilon/wsgi
+usr/share/ipsilon/templates/install/pam/*.pamd
